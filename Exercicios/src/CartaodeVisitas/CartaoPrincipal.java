@@ -278,7 +278,7 @@ public class CartaoPrincipal {
 	 	 
 	 	 JPanel panel_1 = new JPanel();
 	 	 panel_1.setBackground(new Color(218, 193, 225));
-	 	 panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Qual seu sexo?", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+	 	 panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(61, 34, 68), null), "Qual seu sexo?", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(61, 34, 68)));
 	 	 panel_1.setBounds(20, 402, 582, 142);
 	 	 frame.getContentPane().add(panel_1);
 	 	 panel_1.setLayout(null);

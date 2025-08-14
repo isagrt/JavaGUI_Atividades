@@ -100,5 +100,15 @@ public class visitCard extends JDialog {
 		lblNewLabel.setIcon(new ImageIcon(visitCard.class.getResource("/Image/copy/HelloKitty (2).jpg")));
 		lblNewLabel.setBounds(-11, 38, 300, 300);
 		contentPanel.add(lblNewLabel);
+		
+		JButton btnExit = new JButton("Exit");
+		btnExit.setBackground(new Color(11, 101, 145));
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(DISPOSE_ON_CLOSE);
+			}
+		});
+		btnExit.setBounds(482, 337, 89, 23);
+		contentPanel.add(btnExit);
 	}
 }
