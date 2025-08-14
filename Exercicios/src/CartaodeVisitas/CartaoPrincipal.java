@@ -36,6 +36,8 @@ import javax.swing.AbstractListModel;
 import javax.swing.border.EtchedBorder;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import java.awt.Insets;
 
 public class CartaoPrincipal {
 
@@ -73,6 +75,7 @@ public class CartaoPrincipal {
 	 */
 	private void initialize() {
 	    frame = new JFrame();
+	    frame.getContentPane().setBackground(new Color(199, 163, 210));
 	    frame.getContentPane().setFont(new Font("Segoe UI", Font.PLAIN, 13));
 	    frame.setFont(new Font("Segoe UI Semibold", Font.BOLD, 20));
 	    frame.setForeground(new Color(0, 0, 0));
@@ -80,53 +83,59 @@ public class CartaoPrincipal {
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    frame.getContentPane().setLayout(null);
 
-	    JLabel txtDigitarMessage = new JLabel("Digite uma mensagem: ");
-	    txtDigitarMessage.setBounds(10, 93, 166, 26);
+	    JLabel txtDigitarMessage = new JLabel("Digite seu nome: ");
+	    txtDigitarMessage.setBounds(10, 83, 236, 26);
 	    txtDigitarMessage.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 	    frame.getContentPane().add(txtDigitarMessage);
 	    
 	    
 
 	    messageField = new JTextField();
-	    messageField.setBounds(10, 130, 273, 26);
+	    messageField.setBounds(10, 120, 273, 26);
 	    messageField.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 	    frame.getContentPane().add(messageField);
 	    messageField.setColumns(10);
 	    
 
 	   	JMenuBar menuBar = new JMenuBar();
+	   	menuBar.setMargin(new Insets(1, 1, 1, 1));
+	   	menuBar.setBorderPainted(false);
+	   	menuBar.setForeground(new Color(64, 0, 64));
 	   	menuBar.setBounds(0, 0, 644, 36);
-	   	menuBar.setBackground(new Color(117, 236, 120));
+	   	menuBar.setBackground(new Color(149, 83, 168));
 	   	frame.getContentPane().add(menuBar);
 	    	    
 	    	    	  
-	   	JMenu menu = new JMenu("Menu");
-	   	menuBar.add(menu); 
+	   	JMenu mnMenu = new JMenu("Menu >");
+	   	menuBar.add(mnMenu); 
 
 	    JMenuItem mntmOpenMessage = new JMenuItem("Abrir mensagem");
+	    mntmOpenMessage.setIcon(new ImageIcon(CartaoPrincipal.class.getResource("/Image/copy/message.png")));
 	    mntmOpenMessage.addActionListener(new ActionListener() {
 	    public void actionPerformed(ActionEvent e) {
 	    JOptionPane.showMessageDialog(null, "Olá, bem vindo(a) a minha janela de funções");
 	    }
 	    
 	    });
-	    menu.add(mntmOpenMessage);
+	    mnMenu.add(mntmOpenMessage);
 
 	  	JMenuItem mntmVisitCard = new JMenuItem("Abrir Cartão de Visita");
+	  	mntmVisitCard.setIcon(new ImageIcon(CartaoPrincipal.class.getResource("/Image/copy/cartao.png")));
 	  	mntmVisitCard.addActionListener(new ActionListener() {
 	    public void actionPerformed(ActionEvent e) {
-	    cartaoDeVisita cartao = new cartaoDeVisita();
+	    visitCard cartao = new visitCard();
 	    cartao.setVisible(true);
 	    }
 	    });
-	 	 menu.add(mntmVisitCard);
+	 	 mnMenu.add(mntmVisitCard);
 	 	 
 	 	 JButton btnShowMessage = new JButton("Mostrar");
+	 	 btnShowMessage.setBackground(new Color(148, 83, 168));
 	 	 btnShowMessage.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-	 	 btnShowMessage.setBounds(10, 167, 89, 23);
+	 	 btnShowMessage.setBounds(10, 166, 89, 23);
 	 	 btnShowMessage.addActionListener(new ActionListener() {
 	 	 	public void actionPerformed(ActionEvent e) {
-	 	 		JOptionPane.showMessageDialog(null, messageField.getText());
+	 	 		JOptionPane.showMessageDialog(null,"Oiee, "+ messageField.getText());
 	 	 	}
 	 	 });
 	 	 frame.getContentPane().add(btnShowMessage);
@@ -147,6 +156,7 @@ public class CartaoPrincipal {
 	 	 table.setBounds(351, 47, 194, 80);
 	 	 
 	 	JScrollPane scrollPane = new JScrollPane(table);
+	 	scrollPane.setToolTipText("Nomes dos Alunos\r\n");
 		scrollPane.setBounds(310, 49, 324, 107);
 	 	 frame.getContentPane().add(scrollPane);
 	 	 
@@ -179,27 +189,32 @@ public class CartaoPrincipal {
 	 	 frame.getContentPane().add(separator);
 	 	 
 	 	 JPanel panel = new JPanel();
-	 	 panel.setBorder(new TitledBorder(null, "Qual(is) seu passatempo favorito?", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+	 	 panel.setBackground(new Color(218, 193, 225));
+	 	 panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(61, 34, 68), null), "Qual(is) seu passatempo favorito?", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(61, 34, 68)));
 	 	 panel.setBounds(20, 236, 263, 142);
 	 	 frame.getContentPane().add(panel);
 	 	 panel.setLayout(null);
 	 	 
 	 	 JCheckBox chbxLer = new JCheckBox("Ler");
+	 	 chbxLer.setBackground(new Color(218, 193, 225));
 	 	 chbxLer.setBounds(6, 24, 97, 23);
 	 	 panel.add(chbxLer);
 	 	 
 	 	 JCheckBox chbxSair = new JCheckBox("Sair com os amigos");
+	 	 chbxSair.setBackground(new Color(218, 193, 225));
 	 	 chbxSair.setBounds(6, 50, 158, 23);
 	 	 panel.add(chbxSair);
 	 	 
 	 	 JCheckBox chbxAssistir = new JCheckBox("Assistir televisão");
+	 	 chbxAssistir.setBackground(new Color(218, 193, 225));
 	 	 chbxAssistir.setBounds(6, 76, 158, 23);
 	 	 panel.add(chbxAssistir);
 	 	 
 	 	 JButton btnitensSelecionados = new JButton("Passatemos");
+	 	 btnitensSelecionados.setBackground(new Color(148, 83, 168));
 	 	 btnitensSelecionados.addActionListener(new ActionListener() {
 	 	 	public void actionPerformed(ActionEvent e) {
-	 	 		 StringBuilder itens = new StringBuilder("Itens selecionados:\n");
+	 	 		 StringBuilder itens = new StringBuilder("Passatempos favs de " +messageField.getText()+ ":\n");
 
 	 	        if (chbxLer.isSelected()) {
 	 	            itens.append("- Ler\n");
@@ -222,7 +237,8 @@ public class CartaoPrincipal {
 	 	 panel.add(btnitensSelecionados);
 	 	 
 	 	 JList listed = new JList();
-	 	 listed.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Lista de compras", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+	 	 listed.setBackground(new Color(218, 193, 225));
+	 	 listed.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(61, 34, 68), null), "Lista de compras", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(61, 34, 68)));
 	 	 listed.setModel(new AbstractListModel() {
 	 	 	String[] values = new String[] {"Frutas", "Verduras", "Leite", "Pão", "Manteiga"};
 	 	 	public int getSize() {
@@ -236,11 +252,13 @@ public class CartaoPrincipal {
 	 	 frame.getContentPane().add(listed);
 	 	 
 	 	 JList listBlank = new JList();
-	 	 listBlank.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "J\u00E1 no carrinho", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+	 	 listBlank.setBackground(new Color(218, 193, 225));
+	 	 listBlank.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(61, 34, 68), null), "J\u00E1 no carrinho", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(61, 34, 68)));
 	 	 listBlank.setBounds(461, 236, 141, 119);
 	 	 frame.getContentPane().add(listBlank);
 	 	 
 	 	 JButton btnConfirmar = new JButton("Confirmar");
+	 	 btnConfirmar.setBackground(new Color(148, 83, 168));
 	 	 btnConfirmar.addActionListener(new ActionListener() {
 	 	 	public void actionPerformed(ActionEvent e) {
 	 	 		DefaultListModel dlm = new DefaultListModel();
@@ -259,44 +277,54 @@ public class CartaoPrincipal {
 	 	 frame.getContentPane().add(btnConfirmar);
 	 	 
 	 	 JPanel panel_1 = new JPanel();
+	 	 panel_1.setBackground(new Color(218, 193, 225));
 	 	 panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "Qual seu sexo?", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 	 	 panel_1.setBounds(20, 402, 582, 142);
 	 	 frame.getContentPane().add(panel_1);
 	 	 panel_1.setLayout(null);
 	 	 
+	 	 saidaField = new JTextField();
+	 	 saidaField.setBounds(115, 21, 369, 71);
+	 	 panel_1.add(saidaField);
+	 	 saidaField.setColumns(10);
+	 	 
 	 	 JRadioButton btnrMasc = new JRadioButton("Masculino");
+	 	 btnrMasc.setBackground(new Color(218, 193, 225));
 	 	 buttonGroup.add(btnrMasc);
-	 	 btnrMasc.setBounds(32, 33, 89, 23);
+	 	 btnrMasc.setBounds(16, 33, 89, 23);
 	 	 panel_1.add(btnrMasc);
 	 	 
 	 	 JRadioButton btnrFem = new JRadioButton("Feminino");
+	 	 btnrFem.setBackground(new Color(218, 193, 225));
 	 	 buttonGroup.add(btnrFem);
-	 	 btnrFem.setBounds(32, 59, 89, 23);
+	 	 btnrFem.setBounds(16, 59, 89, 23);
 	 	 panel_1.add(btnrFem);
 	 	 
 	 	 JButton btnInsert = new JButton("Inserir");
+	 	 btnInsert.setBackground(new Color(148, 83, 168));
 	 	 btnInsert.addActionListener(new ActionListener() {
 	 	 	public void actionPerformed(ActionEvent e) {
 	 	 		if(btnrMasc.isSelected() == true) {
-	 	 			saidaField.setText("Bom dia, seja bem vindo ao meu site\nquerido amigo!");
+	 	 			saidaField.setText("Bom dia " + messageField.getText() + ", seja bem-vindo ao meu site querido amigo!");
 				}if(btnrFem.isSelected() == true) {
-					saidaField.setText("Bom dia, seja bem vinda ao meu site\nquerida amiga!");
+					saidaField.setText("Bom dia " +messageField.getText()+ ", seja bem vinda ao meu site querida amiga!");
 				}}
 	 	 	
 	 	 });
 	 	 btnInsert.setBounds(252, 108, 89, 23);
 	 	 panel_1.add(btnInsert);
 	 	 
-	 	 saidaField = new JTextField();
-	 	 saidaField.setBounds(181, 22, 379, 71);
-	 	 panel_1.add(saidaField);
-	 	 saidaField.setColumns(10);
+	 	 JLabel lblNewLabel = new JLabel("");
+	 	 lblNewLabel.setIcon(new ImageIcon(CartaoPrincipal.class.getResource("/Image/copy/Iconka-Meow-2-Cat-laptop.72.png")));
+	 	 lblNewLabel.setBounds(494, 23, 78, 81);
+	 	 panel_1.add(lblNewLabel);
 	 	 
 	 	 JSeparator separator_1 = new JSeparator();
 	 	 separator_1.setBounds(10, 555, 624, 12);
 	 	 frame.getContentPane().add(separator_1);
 	 	 
 	 	 JButton btnExit = new JButton("Exit");
+	 	 btnExit.setBackground(new Color(132, 74, 149));
 	 	 btnExit.addActionListener(new ActionListener() {
 	 	 	public void actionPerformed(ActionEvent e) {
 	 	 		System.exit(0);
