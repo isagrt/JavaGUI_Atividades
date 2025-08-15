@@ -332,6 +332,11 @@ public class CartaoPrincipal {
 	 	 });
 	 	 btnExit.setBounds(262, 575, 89, 26);
 	 	 frame.getContentPane().add(btnExit);
+	 	 
+	 	 JLabel lblWelcome = new JLabel("Bem vindo(a)!!");
+	 	 lblWelcome.setFont(new Font("MS Gothic", Font.PLAIN, 30));
+	 	 lblWelcome.setBounds(10, 47, 249, 22);
+	 	 frame.getContentPane().add(lblWelcome);
 	}
 }
 
