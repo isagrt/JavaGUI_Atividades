@@ -335,7 +335,7 @@ public class CartaoPrincipal {
 	 	 
 	 	 JLabel lblWelcome = new JLabel("Bem vindo(a)!!");
 	 	 lblWelcome.setFont(new Font("MS Gothic", Font.PLAIN, 30));
-	 	 lblWelcome.setBounds(10, 47, 249, 22);
+	 	 lblWelcome.setBounds(10, 47, 249, 36);
 	 	 frame.getContentPane().add(lblWelcome);
 	}
 }
